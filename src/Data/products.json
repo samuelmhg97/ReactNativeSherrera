@@ -1,0 +1,48 @@
+
+[
+    {
+      "id": 1,
+      "title": "Curso de Productividad para Nómadas",
+      "description": "Aprende técnicas y herramientas para aumentar tu productividad mientras trabajas como nómada o freelancer.",
+      "price": 99.99,
+      "images":[ "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"],
+      "category": "nomada",
+      "stock": 25
+    },
+    {
+      "id": 2,
+      "title": "Curso de Finanzas Personales para Freelancers",
+      "description": "Descubre cómo administrar tus finanzas de manera efectiva y optimizar tus ingresos como freelancer.",
+      "price": 79.99,
+      "images": ["https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"],
+      "category": "freelancer",
+      "stock": 25
+    },
+    {
+      "id": 3,
+      "title": "Curso de Gestión del Tiempo",
+      "description": "Aprende a organizar tu tiempo de manera eficiente y evitar la procrastinación en tu trabajo como nómada o freelancer.",
+      "price": 69.99,
+      "images": ["https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"],
+      "category": "nomada",
+      "stock": 25
+    },
+    {
+      "id": 4,
+      "title": "Curso de Automatización de Tareas",
+      "description": "Descubre herramientas y estrategias para automatizar tareas repetitivas y optimizar tu flujo de trabajo.",
+      "price": 49.99,
+      "images": ["https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"],
+      "category": "freelancer",
+      "stock": 25
+    },
+    {
+      "id": 5,
+      "title": "Curso de Coworking y Espacios de Trabajo Remoto",
+      "description": "Aprende a elegir y aprovechar los espacios de coworking y trabajar de forma remota de manera efectiva.",
+      "price": 89.99,
+      "images": ["https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"],
+      "category": "nomada",
+      "stock": 25
+    }
+]
