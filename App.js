@@ -1,17 +1,12 @@
-import { StyleSheet, Text, View, StatusBar, Platform, SafeAreaView } from 'react-native';
-import Header from './src/Components/Header';
-import Home from './src/Screens/Home';
-import ItemListCategory from './src/Screens/ItemListCategory';
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
 
 import Navigator from './src/Navigation/Navigator';
+import { Provider } from 'react-redux';
+import store from "./src/Store/Store"
 
 
 export default function App() {
-
-  const [categorySelected, setCategorySelected] = useState("")
-  const [productSelected, setProductSelected] = useState("")
 
   const [fontsLoaded] = useFonts({
     'Roboto': require('./src/Assets/Fonts/Roboto/Roboto-ThinItalic.ttf')
@@ -23,7 +18,9 @@ export default function App() {
 
   
   return (
-    <Navigator/>
+    <Provider store={store}>
+      <Navigator/>
+    </Provider>
   );
 }
 

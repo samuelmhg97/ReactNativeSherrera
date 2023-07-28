@@ -6,7 +6,6 @@ const ProductItem = ({item, navigation}) => {
 
   const {height, width} = useWindowDimensions();
 
-  console.log(height, width)
 
   const onSelect = (id) => {
     navigation.navigate("Detail", {productId: item.id})

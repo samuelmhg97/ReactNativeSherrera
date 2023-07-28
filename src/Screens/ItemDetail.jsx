@@ -21,7 +21,7 @@ const ItemDetail = ({navigation, route}) => {
   }, [idSelected])
   return (
     <View>
-      <Button onPress={()=> navigation.goBack()} title= "goBack"/>
+      {/* <Button onPress={()=> navigation.goBack()} title= "goBack"/> */}
       {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape} > 
           <Image source={{uri: product.images[0]}} resizeMode="cover" style={styles.image}/>
@@ -29,7 +29,7 @@ const ItemDetail = ({navigation, route}) => {
             <Text>{product.title}</Text>
             <Text>{product.description}</Text>
             <Text>${product.price}</Text>
-            <Button title="Add to Cart"></Button>
+            <Button title="Add Cart"></Button>
           </View>
         </View>
       ): console.log(product)}
@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300
+    height: 300,
+    marginTop: 15,
+    marginBottom: 15
   },
   textContainer: {
     flexDirection: "column"
