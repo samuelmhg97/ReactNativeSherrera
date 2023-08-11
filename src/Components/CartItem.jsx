@@ -7,9 +7,9 @@ const CartItem = ({cartItem}) => {
   return (
     <View style={styles.card} onPress ={()=>{}}>
       <View style = {styles.textContainer}>
-        <text style={styles.text}>{cartItem.title}({cartItem.quantity})</text>
-        <text style={styles.text2}>{cartItem.brand}</text>
-        <text style={styles.text2}>${cartItem.price}</text>
+        <Text style={styles.text}>{cartItem.title}({cartItem.quantity})</Text>
+        <Text style={styles.text2}>{cartItem.brand}</Text>
+        <Text style={styles.text2}>${cartItem.price}</Text>
       </View>
       <Entypo name='trash' size={30} color="white"/>
     </View>

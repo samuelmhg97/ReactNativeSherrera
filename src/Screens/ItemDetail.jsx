@@ -1,14 +1,19 @@
 import {Button, Image,Pressable,  StyleSheet, Text, View, useWindowDimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import allProducts from "../Data/products.json"
+import { useDispatch } from 'react-redux'
+import { addCartItem } from '../Features/Cart/cartSlice'
 
 const ItemDetail = ({navigation, route}) => {
 
   const {productId: idSelected}=  route.params
 
+  const dispatch = useDispatch()
+
   const [product, setProduct] = useState(null)
   const [orientation, setOrientation] = useState("portrait")
   const {width, heigth} = useWindowDimensions()
+  
 
   useEffect(() => {
     if (width > heigth) setOrientation("landscape")
@@ -19,6 +24,13 @@ const ItemDetail = ({navigation, route}) => {
     const productSelected = allProducts.find((product) => product.id === idSelected)
     setProduct(productSelected)
   }, [idSelected])
+
+  const addOnCart = () => {
+    dispatch(addCartItem({
+      ...product,
+      quantity: 1
+    }))
+  }
   return (
     <View>
       {/* <Button onPress={()=> navigation.goBack()} title= "goBack"/> */}
@@ -29,7 +41,7 @@ const ItemDetail = ({navigation, route}) => {
             <Text>{product.title}</Text>
             <Text>{product.description}</Text>
             <Text>${product.price}</Text>
-            <Button title="Add Cart"></Button>
+            <Button title="Add Cart" onPress={addOnCart}></Button>
           </View>
         </View>
       ): console.log(product)}

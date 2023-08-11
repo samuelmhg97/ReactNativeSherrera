@@ -7,45 +7,61 @@ import CartStack from './CartStack'
 
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import { colors } from '../Global/Colors'
-import {Fontisto} from "@expo/vector-icons"
-import {Foundation} from "@expo/vector-icons"
-import {FontAwesome5} from "@expo/vector-icons"
+import {Fontisto, Foundation, FontAwesome5, Ionicons} from "@expo/vector-icons"
+
 import OrderStack from './OrderStack'
+import AuthStack from './AuthStack'
+import { useSelector } from 'react-redux'
+import MyProfileStack from './MyProfileStack'
 
 const Tab = createBottomTabNavigator()
 
 const Navigator = () => {
+    const {email}=  useSelector(state => state.userReducer.value)
   return (
     <SafeAreaView style= {styles.container}>
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{
-                headerShown: false,
-                tabBarShowLabel: false,
-                tabBarStyle: styles.tabBar
-            }}>
-                <Tab.Screen name= "Shop" component={ShopStack} options={{tabBarIcon: ({focused}) => {
-                    return (
-                        <View>
-                            <Fontisto name='shopping-store' size={24} color={focused ? "black": "gray"}/>
-                        </View>
-                    )
-                }}} />
-                <Tab.Screen name= "Cart" component={CartStack} options={{tabBarIcon: ({focused}) => {
-                    return (
-                        <View>
-                            <Foundation name='shopping-cart' size={24} color={focused ? "black": "gray"}/>
-                        </View>
-                    )
-                }}} />
-                <Tab.Screen name= "Orders" component={OrderStack} options={{tabBarIcon: ({focused}) => {
-                    return (
-                        <View>
-                            <FontAwesome5 name='list-ul' size={24} color={focused ? "black": "gray"}/>
-                        </View>
-                    )
-                }}} />
-
-            </Tab.Navigator>
+            {
+                email ?
+                <Tab.Navigator screenOptions={{
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarStyle: styles.tabBar
+                }}>
+                    <Tab.Screen name= "Shop" component={ShopStack} options={{tabBarIcon: ({focused}) => {
+                        return (
+                            <View>
+                                <Fontisto name='shopping-store' size={24} color={focused ? "black": "gray"}/>
+                            </View>
+                        )
+                    }}} />
+                    <Tab.Screen name= "Cart" component={CartStack} options={{tabBarIcon: ({focused}) => {
+                        return (
+                            <View>
+                                <Foundation name='shopping-cart' size={24} color={focused ? "black": "gray"}/>
+                            </View>
+                        )
+                    }}} />
+                    <Tab.Screen name= "Orders" component={OrderStack} options={{tabBarIcon: ({focused}) => {
+                        return (
+                            <View>
+                                <FontAwesome5 name='list-ul' size={24} color={focused ? "black": "gray"}/>
+                            </View>
+                        )
+                    }}} />
+                    <Tab.Screen name= "MyProfile" component={MyProfileStack} options={{tabBarIcon: ({focused}) => {
+                        return (
+                            <View>
+                                <Ionicons name='person-circle-outline' size={24} color={focused ? "black": "gray"}/>
+                            </View>
+                        )
+                    }}}
+                    />
+    
+                </Tab.Navigator>
+                : <AuthStack/>
+            } 
+           
         </NavigationContainer>
     </SafeAreaView>
   )

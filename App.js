@@ -1,11 +1,9 @@
 import { useFonts } from 'expo-font';
-import { useState } from 'react';
+
 
 import Navigator from './src/Navigation/Navigator';
 import { Provider } from 'react-redux';
 import store from "./src/Store/Store"
-
-
 export default function App() {
 
   const [fontsLoaded] = useFonts({

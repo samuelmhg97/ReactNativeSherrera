@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TextInput, View , useWindowDimensions} from 'react-native'
 import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -11,9 +11,15 @@ const Search = ({
     goBack
 }) => {
     const [keyword, setKeyword] = useState("")
+    const {width, height} = useWindowDimensions()
+
+    const onErase = () => {
+        setKeyword("")
+        onSearch("")
+    }
 
   return (
-    <View style ={styles.container}>
+    <View style ={width >350 ? styles.container : styles.containerSM}>
         <TextInput style ={styles.input} 
             placeholder='Search...'
             value={keyword}
@@ -22,12 +28,12 @@ const Search = ({
         <Pressable onPress={()=>onSearch(keyword)}>
             <FontAwesome name="search" size={24} color="black" />
         </Pressable>
-        <Pressable onPress={()=> setKeyword("")}>
+        <Pressable onPress={onErase}>
             <FontAwesome5 name="eraser" size={24} color="black" />
         </Pressable>
-        <Pressable onPress={goBack}>
+        {/* <Pressable onPress={goBack}>
             <AntDesign name="back" size={24} color="black" />
-        </Pressable>
+        </Pressable> */}
        { error ?
          <Text>
             {error}
@@ -45,6 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: '10%',
+        width: "100%",
         gap: 18,
     },
     input: {
@@ -53,5 +60,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         backgroundColor: colors.aqua,
         borderRadius: 10,
+    },
+    containerSM: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '10%',
     }
 })
