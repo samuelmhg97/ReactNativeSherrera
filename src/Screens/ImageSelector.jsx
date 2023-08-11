@@ -31,6 +31,7 @@ const ImageSelector = ({navigation}) => {
       let result = await ImagePicker.launchCameraAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
+        aspect: [1,1],
         quality: 1
       })
 

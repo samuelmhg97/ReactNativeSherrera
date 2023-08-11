@@ -20,6 +20,10 @@ const Home = ({
             keyExtractor={category => category}
             renderItem={({item}) => <CategoryItem item={item} navigation={navigation}/>}
             showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle= {styles.wrapper}
+            horizontal ={ true}
+            style= {styles.flatlist}
         />
     </View>
   )
@@ -32,5 +36,11 @@ const styles = StyleSheet.create({
         height: '90%',
         backgroundColor: colors.lightAqua,
         alignItems: 'center'
+    },
+    wrapper: {
+      gap:15
+    },
+    flatlist: {
+      width: "80%"
     }
 })

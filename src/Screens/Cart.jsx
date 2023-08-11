@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
-import CartData from "../Data/cart.json"
+
 import CartItem from '../Components/CartItem'
 import {useSelector } from 'react-redux/es/hooks/useSelector'
 import { usePostCartMutation } from '../Services/shopServices'

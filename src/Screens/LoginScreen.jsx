@@ -44,7 +44,11 @@
                     email: resultSignIn.data.email,
                     idToken: resultSignIn.data.idToken,
                     localId: resultSignIn.data.localId,
-                    profileImage: ""
+                    profileImage: "",
+                    location: {
+                        latitude: "",
+                        longitude: "",
+                    }
                 }))
             } 
         },[resultSignIn])
