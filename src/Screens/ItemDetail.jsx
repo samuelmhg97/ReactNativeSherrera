@@ -44,7 +44,7 @@ const ItemDetail = ({navigation, route}) => {
             <Button title="Add Cart" onPress={addOnCart}></Button>
           </View>
         </View>
-      ): console.log(product)}
+      ): console.log("hola")}
     </View>
   )
 }

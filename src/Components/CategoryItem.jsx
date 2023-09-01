@@ -1,7 +1,6 @@
-import { Pressable, StyleSheet, Text, useWindowDimensions } from 'react-native'
+import { View, Pressable, StyleSheet, Text, useWindowDimensions } from 'react-native'
 import React from 'react'
 import Card from './Card'
-import { View } from 'react-native-web'
 import { useDispatch } from 'react-redux'
 import { setCategorySelected } from '../Features/Shop/shopSlice'
 

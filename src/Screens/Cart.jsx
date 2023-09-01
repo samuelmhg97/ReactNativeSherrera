@@ -2,7 +2,7 @@ import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 
 import CartItem from '../Components/CartItem'
-import {useSelector } from 'react-redux/es/hooks/useSelector'
+import {useSelector } from 'react-redux'
 import { usePostCartMutation } from '../Services/shopServices'
 
 
