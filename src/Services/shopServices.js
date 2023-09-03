@@ -62,7 +62,7 @@ export const shopApi = createApi({
             query: () => `orders.json`
         }),
         getOrdersByUser: builder.query({
-            query: (user) => `orders.json?orderBy="user"&equalTo="${user}"`,
+            query: (email) => `orders.json?orderBy="user"&equalTo="${email}"`,
             transformResponse: (response) => {
                 const ordersTransformed = Object.values(response)
                 return (ordersTransformed)

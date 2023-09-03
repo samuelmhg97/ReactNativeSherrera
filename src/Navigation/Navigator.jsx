@@ -19,7 +19,7 @@ import { setUser } from '../Features/User/userSlice'
 const Tab = createBottomTabNavigator()
 
 const Navigator = () => {
-    const {email, localId}=  useSelector(state => state.userReducer.value)
+    const {email}=  useSelector(state => state.userReducer.value)
 
     const dispath = useDispatch()
 

@@ -34,7 +34,6 @@ const ItemDetail = ({navigation, route}) => {
   }
   return (
     <View>
-      {/* <Button onPress={()=> navigation.goBack()} title= "goBack"/> */}
       {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape} > 
           <View style={styles.textContainer}>
@@ -45,7 +44,6 @@ const ItemDetail = ({navigation, route}) => {
             <Pressable style= {styles.button} onPress={addOnCart}> 
               <Text style= {styles.buttonText}>Add Cart</Text>
             </Pressable>
-            {/* <Button  title="Add Cart" onPress={addOnCart}></Button> */}
           </View>
         </View>
       ): console.log("hola")}

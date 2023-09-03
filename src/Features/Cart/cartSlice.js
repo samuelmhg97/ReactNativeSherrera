@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 export const cartSlice = createSlice({
     name: "Cart",
     initialState: {
@@ -38,10 +39,18 @@ export const cartSlice = createSlice({
             0
           );
         state.value.updatedAt = new Date().toLocaleString();
+    },
+    removeAllItems: (state) => {
+        state.value.items = []
+        state.value.total = 0
+        state.value.updatedAt = ""
+    },
+    setUserForCart: (state, action)=> {
+        state.value.user = action.payload
     }
 }
 })
 
-export const {addCartItem, removeCartItem} = cartSlice.actions
+export const {addCartItem, removeCartItem, removeAllItems, setUserForCart} = cartSlice.actions
 
 export default cartSlice.reducer

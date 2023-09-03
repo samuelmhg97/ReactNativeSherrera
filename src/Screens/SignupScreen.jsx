@@ -24,12 +24,10 @@ const SignupScreen = ({ navigation }) => {
 
     useEffect(()=> {
         if (result.isSuccess) {
-            const userToken = result.data.idToken;
-
             dispatch(
                 setUser({
                     email: result.data.email,
-                    idToken: userToken,
+                    idToken: result.data.idToken,
                     localId: result.data.localId,
                     profileImage: "",
                     location: {

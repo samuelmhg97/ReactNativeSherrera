@@ -1,19 +1,37 @@
 import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { colors } from '../Global/Colors'
 
 import CartItem from '../Components/CartItem'
-import {useSelector } from 'react-redux'
+import {useDispatch, useSelector } from 'react-redux'
 import { usePostCartMutation } from '../Services/shopServices'
+import { removeAllItems, setUserForCart } from '../Features/Cart/cartSlice'
+import { useGetOrdersByUserQuery } from '../Services/shopServices'
 
 
 const Cart = () => {
-    const {items: CartData, total, updatedAt, user} = useSelector( state => state.cartReducer.value)
+    const {items: CartData, total, updatedAt} = useSelector( state => state.cartReducer.value)
+    const user = useSelector(state => state.cartReducer.value.user)
+
+    const dispatch = useDispatch()
+
+    
     const [triggerPostCart, result] = usePostCartMutation()
+    
+    const {data: orders, refetch} = useGetOrdersByUserQuery(user)
+    
+    useEffect(() => {
+        if (result.isSuccess) {
+          refetch()
+          dispatch(setUserForCart(user))
+          dispatch(removeAllItems())
+        }
+      }, [result.isSuccess, dispatch, user, refetch])
 
     const onConfirm = () => {
         triggerPostCart({items: CartData, total, user, updatedAt})
     }
+
 
   return (
     <View style = {styles.container}>
