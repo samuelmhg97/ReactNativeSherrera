@@ -21,7 +21,6 @@ const LocationSelector = ({ navigation }) => {
     const dispatch = useDispatch()
 
 
-    console.log(location);
 
     const onConfirmAddress = () => {
 

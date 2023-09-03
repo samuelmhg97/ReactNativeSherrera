@@ -21,7 +21,7 @@ const ImageSelector = ({navigation}) => {
 
     if(!granted) {
       return false
-    } return false
+    } return true
   }
 
   const pickImage = async() => {
@@ -45,7 +45,8 @@ const ImageSelector = ({navigation}) => {
     try {
       const {status} = await MediaLibrary.requestPermissionsAsync()
       if (status === "granted") {
-        const response = await MediaLibrary.createAssetAsync()
+        console.log("Only valid on emulators and physical devices");
+        const response = await MediaLibrary.createAssetAsync(img)
         triggerSaveImg({
           img: response.uri,
           localId: localId,

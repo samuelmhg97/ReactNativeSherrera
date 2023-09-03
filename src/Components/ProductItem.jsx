@@ -8,7 +8,7 @@ const ProductItem = ({item, navigation}) => {
 
 
   const onSelect = (id) => {
-    navigation.navigate("Detail", {productId: item.id})
+    navigation.navigate("Detail", {productId: item.id, title: item.title})
   }
   return (
 
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "red",
-    width: 200,
+    width: "60%",
     marginLeft:10,
     fontSize: 16
   },
   titleSm: {
     color: "blue",
-    width: 100,
+    width: "60%",
     fontSize: 14
 
   }

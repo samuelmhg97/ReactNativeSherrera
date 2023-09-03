@@ -39,19 +39,34 @@
         }
 
         useEffect(()=> {
-            if(resultSignIn.isSuccess) {
-                dispatch(setUser({
-                    email: resultSignIn.data.email,
-                    idToken: resultSignIn.data.idToken,
-                    localId: resultSignIn.data.localId,
-                    profileImage: "",
-                    location: {
-                        latitude: "",
-                        longitude: "",
-                    }
-                }))
-            } 
-        },[resultSignIn])
+            (async() => {
+                try {
+                    if(resultSignIn.isSuccess) {
+                        console.log("inserting session")
+                        const response = await insertSession({
+                            idToken: resultSignIn.data.idToken,
+                            localId: resultSignIn.data.localId,
+                            email: resultSignIn.data.email,
+                        })
+                        console.log('Session inserted: ');
+                        console.log(response);
+                        dispatch(setUser({
+                            email: resultSignIn.data.email,
+                            idToken: resultSignIn.data.idToken,
+                            localId: resultSignIn.data.localId,
+                            profileImage: "",
+                            location: {
+                                latitude: "",
+                                longitude: "",
+                            }
+                        }))
+                    } 
+                } catch(error) {
+                    console.log(error)
+                }
+            })()
+            },[resultSignIn])
+
     return (
     <View style={styles.main}>
             <View style={styles.container}>

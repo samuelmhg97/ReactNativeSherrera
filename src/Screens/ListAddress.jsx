@@ -19,7 +19,7 @@ const ListAddress = ({ navigation }) => {
         <View style = {styles.container}>
             <Text style={styles.text}>No location set</Text>
             <AddButton
-                title="Set location"
+                title="Set location"    
                 onPress={() => navigation.navigate("Location Selector")}
             />
         </View>

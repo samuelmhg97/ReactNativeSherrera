@@ -12,7 +12,6 @@ const MyProfile = ({navigation}) => {
 
     const {data: image} = useGetProfileImageQuery(localId)
 
-    console.log(image);
 
     const cameraImage = image?.image
 
@@ -23,7 +22,7 @@ const MyProfile = ({navigation}) => {
     const launchLocation = async() => {
         navigation.navigate("List Address")
     }
-    console.log(profileImage);
+
 
     return (
         <View style={styles.container}>

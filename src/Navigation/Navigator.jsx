@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, StatusBar, SafeAreaView, Platform } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 
 import ShopStack from './ShopStack'
@@ -11,13 +11,33 @@ import {Fontisto, Foundation, FontAwesome5, Ionicons} from "@expo/vector-icons"
 
 import OrderStack from './OrderStack'
 import AuthStack from './AuthStack'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import MyProfileStack from './MyProfileStack'
+import { getSession } from '../SQLite'
+import { setUser } from '../Features/User/userSlice'
 
 const Tab = createBottomTabNavigator()
 
 const Navigator = () => {
-    const {email}=  useSelector(state => state.userReducer.value)
+    const {email, localId}=  useSelector(state => state.userReducer.value)
+
+    const dispath = useDispatch()
+
+    useEffect(() => {
+        (async () => {
+            try {
+                console.log("Getting Session")
+                const session = await getSession()
+                if(session?.rows.legth) {
+                    const user = session.rows._array[0]
+                    dispath(setUser(user))
+                }
+            } catch (error) {
+                console.log("error getting session")
+                console.log(error.message)
+            }
+        }) ()
+    }, [])
   return (
     <SafeAreaView style= {styles.container}>
         <NavigationContainer>

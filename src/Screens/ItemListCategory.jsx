@@ -39,7 +39,6 @@ const ItemListCategory = ({
       setKeyword(input)
       setKeywordError("")
     } else {
-      console.log("Solo letras y números");
       setKeywordError("Solo letras y números")
     }
 
