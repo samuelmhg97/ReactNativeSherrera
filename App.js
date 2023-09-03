@@ -1,11 +1,12 @@
 import { useFonts } from 'expo-font';
+import { useEffect } from 'react';
+import { Provider } from 'react-redux';
 
 
 import Navigator from './src/Navigation/Navigator';
-import { Provider } from 'react-redux';
 import store from "./src/Store/Store"
-import { dropTableSessions, init } from './src/SQLite';
-import { useEffect } from 'react';
+import { init } from './src/SQLite';
+import { fonts } from './src/Assets/Fonts';
 
 
 export default function App() {
@@ -13,17 +14,11 @@ export default function App() {
   useEffect(() => {
     init()
     .then((result) => {
-      console.log('Db initialized/dropped')
-      console.log(result);
     })
     .catch((error) => {
-      console.log("Initialization DB failed:");
-      console.log(error.message);
     })
   }, [])
-  const [fontsLoaded] = useFonts({
-    'Roboto': require('./src/Assets/Fonts/Roboto/Roboto-ThinItalic.ttf')
-  });
+  const [fontsLoaded] = useFonts(fonts);
 
   if (!fontsLoaded) {
     return null;

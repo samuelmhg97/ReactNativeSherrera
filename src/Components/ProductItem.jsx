@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions } from 'react-native'
 import React from 'react'
 import Card from './Card'
+import { colors } from '../Global/Colors'
 
 const ProductItem = ({item, navigation}) => {
 
@@ -16,12 +17,12 @@ const ProductItem = ({item, navigation}) => {
     <Card
       additionalStyle={styles.additionalStylesCard}
     >
-        <Text style={width > 350 ? styles.title : styles.titleSm}>{item.title}</Text>
         <Image 
           resizeMode='cover'
           style = {styles.image}
           source={{uri: item.images[0]}}
         />
+        <Text style={width > 350 ? styles.title : styles.titleSm}>{item.title}</Text>
     </Card>
     </Pressable>
 
@@ -33,19 +34,25 @@ export default ProductItem
 const styles = StyleSheet.create({
   image: {
     height: 120,
-    width: 100,
-    borderRadius: 8
+    width: "90%",
+    borderRadius: 8,
   },
   additionalStylesCard: {
-    flexDirection: 'row',
-    height: 120,
-    justifyContent: 'space-between'
+    flexDirection: 'column',
+    height: 200,
+    width:"100%",
+    justifyContent: 'space-between',
+    backgroundColor: colors.hintOfHice,
+    padding:5,
+    gap:5
   },
   title: {
-    color: "red",
-    width: "60%",
+    color: colors.darkBlue,
+    width: "95%",
     marginLeft:10,
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center"
   },
   titleSm: {
     color: "blue",

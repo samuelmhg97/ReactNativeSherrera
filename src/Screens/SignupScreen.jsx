@@ -24,10 +24,12 @@ const SignupScreen = ({ navigation }) => {
 
     useEffect(()=> {
         if (result.isSuccess) {
+            const userToken = result.data.idToken;
+
             dispatch(
                 setUser({
                     email: result.data.email,
-                    idToken: result.data.idToken,
+                    idToken: userToken,
                     localId: result.data.localId,
                     profileImage: "",
                     location: {
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: colors.darkBlue
     },
     container: {
         width: "90%",

@@ -8,6 +8,7 @@
     import { useDispatch } from 'react-redux'
     import { setUser } from '../Features/User/userSlice'
     import { useEffect, useState } from 'react'
+    import { insertSession } from '../SQLite'
 
     const LoginScreen = ({navigation}) => {
         const [email, setEmail] = useState('');
@@ -102,7 +103,8 @@
             width: '100%',
             height: '100%',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            backgroundColor: colors.darkBlue
         },
         container: {
             width: '90%',

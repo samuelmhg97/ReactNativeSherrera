@@ -1,5 +1,6 @@
 import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
+import { colors } from '../Global/Colors'
 
 import CartItem from '../Components/CartItem'
 import {useSelector } from 'react-redux'
@@ -26,11 +27,10 @@ const Cart = () => {
         }} />
         <View style= {styles.totalContainer}>
             <Pressable onPress={onConfirm}>
-                <Text>
-                    Confirm
+                <Text style={styles.totalText}>
+                    Confirm total: ${total}
                 </Text>
             </Pressable>
-            <Text> total: ${total}</Text>
         </View>
     </View>
   )
@@ -39,13 +39,25 @@ const Cart = () => {
 export default Cart
 const styles = StyleSheet.create({
     container: {
+        height:"100%",
         justifyContent: 'space-between',
-        flex: 1,
         marginBottom: 120,
+        backgroundColor: colors.darkBlue,
+
     },
     totalContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        position:"absolute",
+        elevation: 4,
+        bottom: 65,
+        left:"15%",
+        backgroundColor: colors.exodusfruit,
+        padding: 20,
+        borderRadius:10
+    },
+    totalText: {
+        color: colors.hintOfHice
     }
 })

@@ -56,6 +56,7 @@ const ItemListCategory = ({
             keyExtractor={product => product.id}
             renderItem={({item}) => <ProductItem item= {item} navigation={navigation}/>}
             showsVerticalScrollIndicator={false}
+            horizontal = {false}
         />
     </View>
   )
@@ -66,7 +67,7 @@ export default ItemListCategory
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        backgroundColor: colors.lightAqua,
+        backgroundColor: colors.darkBlue,
         alignItems: 'center',
         with:"100%"
     }

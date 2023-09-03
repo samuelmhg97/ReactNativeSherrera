@@ -3,6 +3,7 @@ import React from 'react'
 import Card from './Card'
 import { useDispatch } from 'react-redux'
 import { setCategorySelected } from '../Features/Shop/shopSlice'
+import { colors } from '../Global/Colors'
 
 const CategoryItem = ({
   item,
@@ -37,6 +38,8 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     additionalStyle:{
-      borderRadius: 15
+      borderRadius: 15,
+      height:60,
+      backgroundColor: colors.hintOfHice
     }
 })

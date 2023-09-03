@@ -120,17 +120,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "flex-start",
+        backgroundColor: colors.darkBlue
     },
     text: {
         paddingTop: 20,
         fontFamily: 'Roboto',
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: "bold",
+        color: colors.hintOfHice
     },
     noLocationContainer: {
         width: 200,
         height: 200,
         borderWidth: 2,
-        borderColor: colors.blue,
+        borderColor: colors.darkBlue,
         padding: 10,
         justifyContent: "center",
         alignItems: "center",
@@ -139,5 +142,7 @@ const styles = StyleSheet.create({
         padding: 10,
         fontFamily: "Roboto",
         fontSize: 16,
+        fontWeight: "bold",
+        color: colors.hintOfHice
     },
 });

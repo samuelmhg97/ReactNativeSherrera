@@ -7,7 +7,7 @@ import CartStack from './CartStack'
 
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import { colors } from '../Global/Colors'
-import {Fontisto, Foundation, FontAwesome5, Ionicons} from "@expo/vector-icons"
+import {Fontisto, Foundation, FontAwesome5, Ionicons, FontAwesome} from "@expo/vector-icons"
 
 import OrderStack from './OrderStack'
 import AuthStack from './AuthStack'
@@ -51,7 +51,7 @@ const Navigator = () => {
                     <Tab.Screen name= "Shop" component={ShopStack} options={{tabBarIcon: ({focused}) => {
                         return (
                             <View>
-                                <Fontisto name='shopping-store' size={24} color={focused ? "black": "gray"}/>
+                                <FontAwesome name='mortar-board' size={24} color={focused ? "black": "gray"}/>
                             </View>
                         )
                     }}} />
@@ -95,14 +95,14 @@ const styles = StyleSheet.create({
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
     },
     tabBar: {
-        backgroundColor: colors.aqua,
+        backgroundColor: colors.hintOfHice,
         shadowColor: 'black',
         elevation: 4,
         position: 'absolute',
-        bottom: 25,
-        left: 20,
-        right: 20,
+        bottom: 10,
+        left: 5,
+        right: 5,
         borderRadius: 15,
-        height: 90,
+        height: 50,
     }
   })

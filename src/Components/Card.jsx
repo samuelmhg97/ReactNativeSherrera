@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         border: "none",
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colors.aqua,
+        // backgroundColor: colors.red,
         marginVertical: 10,
         borderRadius: 8,
     }

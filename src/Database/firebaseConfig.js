@@ -2,4 +2,4 @@ export const realtime_database_url = "https://reactnative-95d99-default-rtdb.fir
 
 export const api_key = "AIzaSyAVPW_RISMrVEa2hHiSbdQzjngnav50D5g"
 
-export const google_maps_api_key = "AIzaSyAt0gf9jtHo4ZdQsdh5Tk7ub7zZCjE8dBY" 
+export const google_maps_api_key = "AIzaSyBZG5PAARz495j3HrSFBLdykwnB7ysnzmk" 

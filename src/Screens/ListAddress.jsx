@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import AddButton from "../Components/AddButton";
 import AddressItem from '../Components/AddressItem'
 import { useGetUserLocationQuery } from "../Services/shopServices";
+import { colors } from "../Global/Colors";
 
 const ListAddress = ({ navigation }) => {
     const { location, localId } = useSelector((state) => state.userReducer.value);
@@ -11,10 +12,12 @@ const ListAddress = ({ navigation }) => {
 
 
     return location?.latitude || userLocationQuery ? (
+        <View style = {styles.container}>
         <AddressItem 
             location={location.latitude ? location : userLocationQuery} 
             navigation={navigation} 
         />
+        </View>
     ) : (
         <View style = {styles.container}>
             <Text style={styles.text}>No location set</Text>
@@ -31,11 +34,15 @@ export default ListAddress;
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.darkBlue,
+        height: "100%"
     },
     text: {
         paddingVertical: 20,
         fontFamily: 'Roboto',
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: "bold",
+        color:colors.hintOfHice
     }
 });

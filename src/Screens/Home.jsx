@@ -14,7 +14,7 @@ const Home = ({
 
   return (
     <View style={styles.container}>
-      <Counter/>
+      {/* <Counter/> */}
         <FlatList
             data = {categories}
             keyExtractor={category => category}
@@ -22,7 +22,7 @@ const Home = ({
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle= {styles.wrapper}
-            horizontal ={ true}
+            horizontal ={ false}
             style= {styles.flatlist}
         />
     </View>
@@ -33,14 +33,15 @@ export default Home
 
 const styles = StyleSheet.create({
     container: {
-        height: '90%',
-        backgroundColor: colors.lightAqua,
+        height: '100%',
+        backgroundColor: colors.darkBlue,
         alignItems: 'center'
     },
     wrapper: {
       gap:15
     },
     flatlist: {
-      width: "80%"
+      width: "100%",
+      height: 40
     }
 })

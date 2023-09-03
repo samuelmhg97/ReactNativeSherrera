@@ -5,8 +5,6 @@ import { colors } from "../Global/Colors";
 
 const AddressItem = ({ location, navigation }) => {
 
-    console.log(location);
-
     const onChangeLocation = () => {
         navigation.navigate('Location Selector')
     }
@@ -32,7 +30,7 @@ export default AddressItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.darkBlue,
+        backgroundColor: colors.hintOfHice,
         padding: 10,
         margin: 10,
         borderWidth: 2,

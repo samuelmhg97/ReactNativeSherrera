@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React, {useState} from "react";
+import { colors } from "../Global/Colors";
 import AddButton from "../Components/AddButton";
 import * as ImagePicker from "expo-image-picker"
 import { useSelector } from "react-redux";
@@ -53,6 +54,8 @@ const styles = StyleSheet.create({
         gap: 15,
         alignItems: "center",
         justifyContent: "flex-start",
+        backgroundColor: colors.darkBlue,
+        height:"100%"
     },
     image: {
         width: 100,

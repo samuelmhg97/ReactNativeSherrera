@@ -3,7 +3,6 @@ import React from 'react'
 import { colors } from '../Global/Colors'
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from 'react-redux';
-import {SimpleLineIcons} from "@expo/vector-icons"
 import { signOut } from '../Features/User/userSlice';
 import {deleteSession} from "../SQLite"
 
@@ -45,7 +44,7 @@ const Header = ({route, navigation}) => {
       : null}
       {email ?  (
         <Pressable style= {styles.signOut} onPress={onSignOut}>
-          <SimpleLineIcons name='logout' size={24} color="black"/>
+          <AntDesign name='logout' size={24} color="white"/>
         </Pressable>
       ) : null}
     </View>

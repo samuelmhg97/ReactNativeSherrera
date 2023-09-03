@@ -4,10 +4,10 @@ export const cartSlice = createSlice({
     name: "Cart",
     initialState: {
         value: {
-            user: "HARCODEADOO PAPA",
+            user: "",
             updatedAt: "",
             total: null,
-            items:[]
+            items:[],
         }
     },
     reducers: {
@@ -31,7 +31,13 @@ export const cartSlice = createSlice({
             state.value.updatedAt = new Date().toLocaleString()
     },
     removeCartItem: (state, action) => {
+        state.value.items = state.value.items.filter(item => item.id !== action.payload.id)
 
+        state.value.total = state.value.items.reduce(
+            (acc, currentItem) => acc += currentItem.price * currentItem.quantity,
+            0
+          );
+        state.value.updatedAt = new Date().toLocaleString();
     }
 }
 })
