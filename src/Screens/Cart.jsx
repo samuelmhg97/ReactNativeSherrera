@@ -11,7 +11,7 @@ import { useGetOrdersByUserQuery } from '../Services/shopServices'
 
 const Cart = () => {
     const {items: CartData, total, updatedAt} = useSelector( state => state.cartReducer.value)
-    const user = useSelector(state => state.cartReducer.value.user)
+    const user = useSelector(state => state.userReducer.value)
 
     const dispatch = useDispatch()
 
@@ -22,14 +22,21 @@ const Cart = () => {
     
     useEffect(() => {
         if (result.isSuccess) {
-          refetch()
-          dispatch(setUserForCart(user))
-          dispatch(removeAllItems())
+        refetch()
+        dispatch(setUserForCart(user))
+        dispatch(removeAllItems())
         }
       }, [result.isSuccess, dispatch, user, refetch])
 
     const onConfirm = () => {
-        triggerPostCart({items: CartData, total, user, updatedAt})
+        if (!user) {
+            // El usuario no está configurado, muestra un mensaje de error o redirige a la pantalla de inicio de sesión.
+            console.log("El usuario no está configurado. Redirige a la pantalla de inicio de sesión.");
+            // Puedes mostrar una alerta o redirigir a la pantalla de inicio de sesión.
+        } else {
+            // El usuario está configurado, procede a postear la orden.
+            triggerPostCart({ items: CartData, total, user, updatedAt });
+        }
     }
 
 

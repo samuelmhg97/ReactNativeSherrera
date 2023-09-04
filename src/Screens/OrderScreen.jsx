@@ -8,8 +8,10 @@ import { useGetOrdersByUserQuery } from '../Services/shopServices'
 
 const OrderScreen = () => {
 
-  const email = useSelector(state => state.userReducer.value.email)
-  const {data: orders} = useGetOrdersByUserQuery(email)
+  const user = useSelector(state => state.cartReducer.value.user)
+  const {data: orders} = useGetOrdersByUserQuery(user)
+console.log('User:', user);
+console.log('Orders:', orders);
 
   return (
     <View style={styles.container}>
