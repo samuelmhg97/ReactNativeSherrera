@@ -18,15 +18,12 @@ const Cart = () => {
     
     const [triggerPostCart, result] = usePostCartMutation()
     
-    const {data: orders, refetch} = useGetOrdersByUserQuery(user)
-    
     useEffect(() => {
         if (result.isSuccess) {
-        refetch()
-        dispatch(setUserForCart(user))
+        dispatch(setUserForCart(user.email))
         dispatch(removeAllItems())
         }
-      }, [result.isSuccess, dispatch, user, refetch])
+      }, [result.isSuccess, dispatch, user])
 
     const onConfirm = () => {
         if (!user) {
@@ -35,7 +32,7 @@ const Cart = () => {
             // Puedes mostrar una alerta o redirigir a la pantalla de inicio de sesión.
         } else {
             // El usuario está configurado, procede a postear la orden.
-            triggerPostCart({ items: CartData, total, user, updatedAt });
+            triggerPostCart({ items: CartData, total, user:user.email , updatedAt });
         }
     }
 

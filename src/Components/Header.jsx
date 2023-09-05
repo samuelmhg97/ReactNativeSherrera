@@ -5,6 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '../Features/User/userSlice';
 import {deleteSession} from "../SQLite"
+import { clearOrders } from '../Features/OrderSlice/orderSlice';
 
 const Header = ({route, navigation}) => {
   let title
@@ -23,6 +24,7 @@ const Header = ({route, navigation}) => {
       console.log("Session deleted: ")
       console.log(response)
       dispatch(signOut())
+      clearOrders()
     } catch (error) {
       console.log('Error while sign out:')
       console.log(error.message);

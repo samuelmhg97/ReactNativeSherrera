@@ -1,25 +1,39 @@
 import { View, Text, FlatList, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import OrderData from "../Data/orders.json"
 import OrderItem from '../Components/OrderItem'
 import { colors } from '../Global/Colors'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetOrdersByUserQuery } from '../Services/shopServices'
+import { setOrders } from '../Features/OrderSlice/orderSlice'
 
 const OrderScreen = () => {
 
-  const user = useSelector(state => state.cartReducer.value.user)
-  const {data: orders} = useGetOrdersByUserQuery(user)
-console.log('User:', user);
-console.log('Orders:', orders);
+  const dispatch = useDispatch()
 
+  const user = useSelector(state => state.cartReducer.value.user)
+  const ordersData= useGetOrdersByUserQuery(user)
+
+  
+
+  useEffect(() => {
+    if(ordersData.isSuccess) {
+      if (Array.isArray(ordersData.data)) {
+        dispatch(setOrders(ordersData.data))
+        console.log("order seteada", ordersData.data)
+      }
+    }
+  }, [dispatch, ordersData])
+
+  // const orders = useSelector((state) => state.orderReducer.orders || [])
+  ;
   return (
     <View style={styles.container}>
-      <FlatList data={orders} keyExtractor={orderItem => orderItem.id} renderItem={({item}) => {
+      {/* <FlatList data={orders} keyExtractor={orderItem => orderItem.id} renderItem={({item}) => {
         return(
             <OrderItem order={item}/>
         )
-      }}/>
+      }}/> */}
     </View>
   )
 }
