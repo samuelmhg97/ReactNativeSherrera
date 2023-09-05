@@ -6,13 +6,14 @@ import userReducer from "../Features/User/userSlice"
 import { shopApi } from "../Services/shopServices";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { authApi } from "../Services/authServices";
-
+import orderReducer from "../Features/OrderSlice/orderSlice"
 const store =  configureStore({
     reducer: {
         counterReducer,
         shopReducer,
         cartReducer,
         userReducer,
+        orderReducer,
         [shopApi.reducerPath]: shopApi.reducer,
         [authApi.reducerPath]: authApi.reducer
     },

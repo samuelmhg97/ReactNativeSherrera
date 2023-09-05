@@ -25,15 +25,15 @@ const OrderScreen = () => {
     }
   }, [dispatch, ordersData])
 
-  // const orders = useSelector((state) => state.orderReducer.orders || [])
+  const orders = useSelector((state) => state.orderReducer.value.orders || [])
   ;
   return (
     <View style={styles.container}>
-      {/* <FlatList data={orders} keyExtractor={orderItem => orderItem.id} renderItem={({item}) => {
+      <FlatList data={orders} keyExtractor={orderItem => orderItem.id} renderItem={({item}) => {
         return(
             <OrderItem order={item}/>
         )
-      }}/> */}
+      }}/>
     </View>
   )
 }

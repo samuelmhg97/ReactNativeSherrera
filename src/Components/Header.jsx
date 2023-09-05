@@ -24,7 +24,7 @@ const Header = ({route, navigation}) => {
       console.log("Session deleted: ")
       console.log(response)
       dispatch(signOut())
-      clearOrders()
+      dispatch(clearOrders())
     } catch (error) {
       console.log('Error while sign out:')
       console.log(error.message);
